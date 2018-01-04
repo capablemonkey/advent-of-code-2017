@@ -47,3 +47,12 @@
 
 (repeat-until-duplicate [0 2 7 0])
 (count (repeat-until-duplicate [11 11 13 7 0 15 5 5 4 4 1 1 7 1 15 11]))
+
+(loop [b [1 0 14 14 12 12 10 10 8 8 6 6 4 3 2 1]
+       count 1]
+  (let [b-prime (vec (redistribute b))]
+    (if (= b-prime [1 0 14 14 12 12 10 10 8 8 6 6 4 3 2 1])
+      count
+      (recur
+        b-prime
+        (inc count)))))
